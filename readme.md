@@ -37,7 +37,7 @@ pOne(places, testingFunction).then(result => {
 
 ### pOne(input, testingFunction, [options])
 
-Returns a `Promise` that is fulfilled when all promises in `input` and ones returned from `testingFunction` are fulfilled, or rejects if any of the promises reject. The fulfilled value is a `boolean` that is `true` if some promises passed the test and `false` otherwise.
+Returns a `Promise` that is fulfilled when any promise in `input` and ones returned from `testingFunction` are fulfilled, or rejects if any of the promises reject. The fulfilled value is a `boolean` that is `true` if any promise passed the test and `false` otherwise.
 
 #### input
 
