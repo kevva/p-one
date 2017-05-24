@@ -1,0 +1,45 @@
+{
+  "name": "p-one",
+  "version": "1.0.1",
+  "description": "Test whether some promise passes a testing function",
+  "license": "MIT",
+  "repository": "kevva/p-one",
+  "author": {
+    "name": "Kevin Martensson",
+    "email": "kevinmartensson@gmail.com",
+    "url": "github.com/kevva"
+  },
+  "engines": {
+    "node": ">=4"
+  },
+  "scripts": {
+    "test": "xo && ava"
+  },
+  "files": [
+    "index.js"
+  ],
+  "keywords": [
+    "async",
+    "await",
+    "bluebird",
+    "collection",
+    "concurrency",
+    "concurrently",
+    "filter",
+    "fulfilled",
+    "iterable",
+    "iterator",
+    "parallel",
+    "promise",
+    "promises",
+    "some",
+    "test"
+  ],
+  "dependencies": {
+    "p-filter": "^1.0.0"
+  },
+  "devDependencies": {
+    "ava": "*",
+    "xo": "*"
+  }
+}
