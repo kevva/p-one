@@ -24,9 +24,9 @@ const places = [
 	'Tokyo, Japan'
 ];
 
-const testingFunction = x => getContinent(x).then(x => x === 'europe');
+const testFn = x => getContinent(x).then(x => x === 'europe');
 
-pOne(places, testingFunction).then(result => {
+pOne(places, testFn).then(result => {
 	console.log(result);
 	//=> true
 });
@@ -35,17 +35,17 @@ pOne(places, testingFunction).then(result => {
 
 ## API
 
-### pOne(input, testingFunction, [options])
+### pOne(input, testFn, [options])
 
-Returns a `Promise` that is fulfilled when any promise in `input` and ones returned from `testingFunction` are fulfilled, or rejects if any of the promises reject. The fulfilled value is a `boolean` that is `true` if any promise passed the test and `false` otherwise.
+Returns a `Promise` that is fulfilled when any promise in `input` and ones returned from `testFn` are fulfilled, or rejects if any of the promises reject. The fulfilled value is a `boolean` that is `true` if any promise passed the test and `false` otherwise.
 
 #### input
 
 Type: `Iterable<Promise|any>`
 
-Iterated over concurrently in the `testingFunction` function.
+Iterated over concurrently in the `testFn` function.
 
-#### testingFunction(element, index)
+#### testFn(element, index)
 
 Type: `Function`
 
@@ -61,7 +61,7 @@ Type: `number`<br>
 Default: `Infinity`<br>
 Minimum: `1`
 
-Number of concurrently pending promises returned by `testingFunction`.
+Number of concurrently pending promises returned by `testFn`.
 
 
 ## Related
