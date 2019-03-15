@@ -1,22 +1,29 @@
 'use strict';
 const pMap = require('p-map');
 
-class EndError extends Error {} // eslint-disable-line unicorn/custom-error-definition
+class EndError extends Error {}
 
-const test = testFn => (x, i) => Promise.resolve(testFn(x, i)).then(val => {
-	if (val) {
+const test = testFunction => async (x, i) => {
+	const value = await testFunction(x, i);
+	if (value) {
 		throw new EndError();
 	}
 
-	return val;
-});
+	return value;
+};
 
-module.exports = (iterable, testFn, opts) => pMap(iterable, test(testFn), opts)
-	.then(() => false)
-	.catch(err => {
-		if (err instanceof EndError) {
+const pOne = async (iterable, testFunction, options) => {
+	try {
+		await pMap(iterable, test(testFunction), options);
+		return false;
+	} catch (error) {
+		if (error instanceof EndError) {
 			return true;
 		}
 
-		throw err;
-	});
+		throw error;
+	}
+};
+
+module.exports = pOne;
+module.exports.default = pOne;
